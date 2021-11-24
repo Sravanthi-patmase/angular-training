@@ -1,0 +1,34 @@
+#footer{
+    /* position: -webkit-sticky;
+    bottom:0;
+    width:100%;
+    height:60px;    */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+h5{
+    /* background-color: skyblue;
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    width: 95.3%;
+    bottom: 0;
+    text-align: center; */
+    
+    height:24px; 
+    width: 100%; 
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+    background-color: skyblue;
+    bottom: 0pt;
+    left: 0pt;
+}
+/* .footer {
+    flex-shrink: 0;
+  } */

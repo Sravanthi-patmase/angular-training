@@ -1,0 +1,17 @@
+
+
+<div class="col-md-12 container">
+    <!-- <body> -->
+        <div class="col-md-10 f-left">
+            <div   *ngFor="let item of userInfo | keyvalue">
+                {{ item.key }} - {{ item.value }}
+            </div>
+        </div>
+        <div class="col-md-2 f-right">
+        <button id= "backBtn" class="btn btn-info back-btn " (click) = "backToDetails()"> Back </button>
+
+        </div>
+      <!-- </body>
+</html> -->
+</div>
+    

@@ -1,0 +1,90 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+    <h2 class="h4 mb-4">Employee Registration</h2>
+  
+    <div class="form">
+        <div class="row">
+            <div class="col-md-2">
+                <label>Full Name:</label> 
+            </div>
+            <div class="col-md-10">
+                <input type="text" formControlName="Name" class="form-control" placeholder="Full name"><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Email:</label> 
+            </div>
+            <div class="col-md-10">
+                <input type="text" formControlName="Email" class="form-control" placeholder="E-mail"><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Age:</label> 
+            </div>
+            <div class="col-md-10">
+                <input type="number" formControlName="Age" class="form-control" placeholder="Age"><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label >Gender:</label> 
+            </div>
+            <div class="col-md-2">
+                <!-- <input type="radio" id="female" name="gender"   value="female" >
+                    <label for="html">Female</label><br>
+                <input type="radio" id="male" name="gender"    value="male" >
+                  <label for="css">Male</label><br>
+                <input type="radio" id="other" name="gender"   value="other" >
+                    <label for="css">Other</label><br> -->
+            <label for=""> <input type="radio" value="male"  formControlName="Gender"  > Male</label>
+            <label for=""> <input type="radio" value="female" formControlName="Gender" > Female</label>
+        </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-2">
+                <label>Mobile:</label> 
+            </div>
+            <div class="col-md-10">
+                <input type="tel" formControlName="Mobile" class="form-control" placeholder="Mobile"><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Country:</label> 
+            </div>
+            <div class="col-md-10">
+                <input type="tel" formControlName="Country" class="form-control" placeholder="Country"><br><br>
+            </div>
+        </div>
+        
+    </div>
+  
+    <button class="btn btn-info btn-block" type="submit">Sign in</button>
+  
+    <hr>
+  
+  </form>
+  <!-- ************************************************************************************ -->
+
+  <table id="customers">
+    <tr>
+        <th id= 'tablehead' *ngFor = "let column of headers">
+            {{column}}
+          </th>
+    </tr>
+    <tr *ngFor = "let row of emps"  >
+        <td>{{ row.Name }} </td>  
+        <td>{{ row.Email }}</td>
+        <td>{{ row.Mobile }}</td>
+        <td>{{ row.Age }}</td>
+        <td>{{ row.Gender }}</td>
+        <td>{{ row.Country }}</td>
+      </tr>
+      
+</table>
+
+<button appColorDirective class="sample"> Sample Button </button>
+

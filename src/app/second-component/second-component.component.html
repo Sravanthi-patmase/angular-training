@@ -1,0 +1,59 @@
+<!-- <p>second-component works!</p> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div style="text-align: center;"><h3>Employee Details</h3></div>
+<ng-container *ngIf = "ShowProfile">
+    <app-user-info 
+        [userProfile]="rows"  [currentUserId] = "User_id"  (showProfileValue)="backBtn($event)" > 
+    </app-user-info>
+</ng-container>
+
+<ng-container *ngIf = "!ShowProfile">
+    
+<div class="form-group col-md-4">
+    <input type="text" class="form-control"  placeholder="Search..." [(ngModel)]="searchedKeyword">
+  </div>
+ <div class="col-md-12 customers-table">
+<table id="customers">
+    <tr>
+        <th id= 'tablehead' *ngFor = "let column of headers">
+            {{column}}
+          </th>
+    </tr>
+    <tr *ngFor = "let row of rows | searchFilter:searchedKeyword | paginate: { itemsPerPage: 10, currentPage: p }"  >
+        <td >
+          <a  [class.green] = "row.Gender === 'Male'" [class.red] = "row.Gender === 'Female'"
+           (click) = "goToUserInfo(row.Id)" > {{ row.Name}} </a>  
+        </td>  
+        <td>{{ row.Email}}</td>
+        <td>{{ row.Mobile}}</td>
+        <td>{{ row.Age}}</td>
+        <td> {{ row.Gender}}</td>
+        <td>{{ row.Country}}</td>
+        <td> 
+            <li class="list-inline-item"><button class="btn btn-primary btn-sm rounded-0" type="button" (click)="viewUser(row.Id)" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-eye"></i></button></li>
+            <li class="list-inline-item"><button class="btn btn-danger btn-sm rounded-0" type="button" (click)="deleteUser(row.Id)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></li>
+            <li class="list-inline-item"><button class="btn btn-primary btn-sm rounded-0" type="button" (click)="addValueToEmpReg(row.Id)" data-toggle="tooltip" data-placement="top" title="Add to Emp Reg Details"><i class="fa fa-plus"></i></button></li>
+            <li class="list-inline-item"><button class="btn btn-secondary btn-sm rounded-0" type="button" (click)="addToDB(row.Id)" data-toggle="tooltip" data-placement="top" title="Add this to DB"><i class="fa fa-plus"></i></button></li>
+    </td>
+      </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>
+</div>
+
+
+<!-- <swal title="Fill the form, rapidly">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+      <tr *ngFor="let person of emps">
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+      </tr>
+    </table>
+  </swal> -->
+
+</ng-container>
+
+

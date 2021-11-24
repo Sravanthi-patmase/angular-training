@@ -1,0 +1,19 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> Login Page </title>  
+
+</head>    
+<body>    
+    <div id="center"><label id="loginForm" > <h1> Login Form </h1> </label>  </div>
+        <div class="container">   
+            <label>Username : </label>   
+            <input  type="text" placeholder="Enter Username" id = "username" name="username" #username (input)="onSearchChange()" >
+            <div *ngIf="IsInvalidUser" class="alert alert-danger"> Invalid Credentails </div>
+            <label>Password : </label>   
+            <input type="text" placeholder="Enter Password" id = "password" name="password" #password  (input)="onSearchChange()">  
+            <button (click) = "loginFun( username.value,password.value )" > Login</button>   
+        </div>   
+</body>     
+</html>
